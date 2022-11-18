@@ -44,22 +44,92 @@ function renderPepperoni() {
 
 function renderMushrooms() {
   // Iteration 1: set the visibility of `<section class="mushroom">`
+  document.querySelectorAll('.mushroom').forEach((oneMush) => {
+    if (state.mushrooms) {
+      oneMush.style.visibility = 'visible';
+    } else {
+      oneMush.style.visibility = 'hidden';
+    }
+  });
 }
 
 function renderGreenPeppers() {
   // Iteration 1: set the visibility of `<section class="green-pepper">`
+  document.querySelectorAll('.green-pepper').forEach((onePepper) => {
+    if (state.greenPeppers) {
+      onePepper.style.visibility = 'visible';
+    } else {
+      onePepper.style.visibility = 'hidden';
+    }
+  });
 }
 
 function renderWhiteSauce() {
   // Iteration 2: add/remove the class "sauce-white" of `<section class="sauce">`
+  const ingSauce = document.querySelector('.sauce')
+    if (state.whiteSauce) {
+      ingSauce.classList.add('sauce-white');
+    } else {
+      ingSauce.classList.remove('sauce-white');
+    }
 }
 
 function renderGlutenFreeCrust() {
   // Iteration 2: add/remove the class "crust-gluten-free" of `<section class="crust">`
+  const ingCrust = document.querySelector('.crust')
+  if (state.glutenFreeCrust) {
+    ingCrust.classList.add('crust-gluten-free');
+  } else {
+    ingCrust.classList.remove('crust-gluten-free');
+  }
 }
 
 function renderButtons() {
   // Iteration 3: add/remove the class "active" of each `<button class="btn">`
+  const btnPep = document.querySelector('.btn-pepperoni')
+  if(state.pepperoni) {
+    btnPep.classList.add('active')
+  } else {
+    btnPep.classList.remove('active')
+  }
+  const btnMus = document.querySelector('.btn-mushrooms')
+  if(state.mushrooms) {
+    btnMus.classList.add('active')
+  } else {
+    btnMus.classList.remove('active')
+  }
+  const btnGreenPep = document.querySelector('.btn-green-peppers')
+  if(state.greenPeppers) {
+    btnGreenPep.classList.add('active')
+  } else {
+    btnGreenPep.classList.remove('active')
+  }
+  const btnSauce = document.querySelector('.btn-sauce')
+  if(state.whiteSauce) {
+    btnSauce.classList.add('active')
+  } else {
+    btnSauce.classList.remove('active')
+  }
+  const btnCrust = document.querySelector('.btn-crust')
+  if(state.glutenFreeCrust) {
+    btnCrust.classList.add('active')
+  } else {
+    btnCrust.classList.remove('active')
+  }
+
+  //He intentado crear una constante de los valores del objeto Object.keys(state), iterar por cada uno de ellos y cada uno de los botones para no tener que repetir uno por uno pero no me salía el resultado.
+  // const valueState = Object.value(state)
+  //document.querySelectorAll('.btn').forEach((button) => {
+   // for (let i = 0; valueState.length; i++) {
+     // if (valueState[i]) {
+      //  button.classList.add('active');
+    //  } else {
+    //    button.classList.remove('active')
+   //   }
+   // }
+ // });
+  
+
 }
 
 function renderPrice() {
@@ -75,9 +145,22 @@ document.querySelector('.btn.btn-pepperoni').addEventListener('click', function 
 });
 
 // Iteration 1: Add click event listener on `<button class="btn btn-mushrooms">`
-
+document.querySelector('.btn.btn-mushrooms').addEventListener('click', function () {
+  state.mushrooms = !state.mushrooms;
+  renderEverything();
+});
 // Iteration 1: Add click event listener on `<button class="btn btn-green-peppers">`
-
+document.querySelector('.btn.btn-green-peppers').addEventListener('click', function () {
+  state.greenPeppers = !state.greenPeppers;
+  renderEverything();
+});
 // Iteration 2: Add click event listener on `<button class="btn btn-sauce">`
-
+document.querySelector('.btn.btn-sauce').addEventListener('click', function () {
+  state.whiteSauce = !state.whiteSauce;
+  renderEverything();
+});
 // Iteration 2: Add click event listener on `<button class="btn btn-crust">`
+document.querySelector('.btn.btn-crust').addEventListener('click', function () {
+  state.glutenFreeCrust = !state.glutenFreeCrust;
+  renderEverything();
+});
