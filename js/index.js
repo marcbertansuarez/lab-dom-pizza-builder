@@ -117,23 +117,33 @@ function renderButtons() {
     btnCrust.classList.remove('active')
   }
 
-  //He intentado crear una constante de los valores del objeto Object.keys(state), iterar por cada uno de ellos y cada uno de los botones para no tener que repetir uno por uno pero no me salía el resultado.
-  // const valueState = Object.value(state)
-  //document.querySelectorAll('.btn').forEach((button) => {
+  //He intentado crear una constante de los valores del objeto Object.values(state), iterar por cada uno de ellos y cada uno de los botones para no tener que repetir uno por uno pero no me salía el resultado.
+  // const valueState = Object.values(state)
+  //const buttons = document.querySelectorAll('.btn')
    // for (let i = 0; valueState.length; i++) {
      // if (valueState[i]) {
-      //  button.classList.add('active');
+      //  buttons.classList.add('active');
     //  } else {
-    //    button.classList.remove('active')
+    //    buttons.classList.remove('active')
    //   }
-   // }
- // });
   
 
 }
 
 function renderPrice() {
   // Iteration 4: change the HTML of `<aside class="panel price">`
+  const extraPrices = document.querySelectorAll('.price li')
+  console.log(extraPrices)
+  if(state.pepperoni) {extraPrices[0].style.visibility = 'visible';} 
+  else {extraPrices[0].style.visibility = 'hidden';}
+  if(state.mushrooms) {extraPrices[1].style.visibility = 'visible';} 
+  else {extraPrices[1].style.visibility = 'hidden';}
+  if(state.greenPeppers){extraPrices[2].style.visibility = 'visible';}
+  else {extraPrices[2].style.visibility = 'hidden';}
+  if(state.whiteSauce){extraPrices[3].style.visibility = 'visible';}
+  else {extraPrices[3].style.visibility = 'hidden';}
+  if(state.glutenFreeCrust){extraPrices[4].style.visibility = 'visible';}
+  else{extraPrices[4].style.visibility = 'hidden';}
 }
 
 renderEverything();
