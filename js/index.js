@@ -120,11 +120,11 @@ function renderButtons() {
   //He intentado crear una constante de los valores del objeto Object.values(state), iterar por cada uno de ellos y cada uno de los botones para no tener que repetir uno por uno pero no me salía el resultado.
   // const valueState = Object.values(state)
   //const buttons = document.querySelectorAll('.btn')
-   // for (let i = 0; valueState.length; i++) {
+   // for (let i = 0; i<buttons.length; i++) {
      // if (valueState[i]) {
-      //  buttons.classList.add('active');
+      //  buttons[i].classList.add('active');
     //  } else {
-    //    buttons.classList.remove('active')
+    //    buttons[i].classList.remove('active')
    //   }
   
 
